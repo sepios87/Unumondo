@@ -1,0 +1,46 @@
+@import "src/scss/mixins", "src/scss/variables";
+
+.sponsors {
+    margin: $marginBig 0 $marginBottomNav;
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 90%;
+        margin: $marginBig auto;
+        row-gap: $marginBig;
+
+        @media screen and (min-width: $mediaPhone) {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__link {
+        width: 60%;
+        max-width: 200px;
+
+        @media screen and (min-width: $mediaPhone) {
+            width: 30%;
+        }
+    }
+
+    &__img {
+        width: 100%;
+    }
+}
+
+.title {
+    @include title($darkBlue);
+}
+
+.subtitle {
+    @include subTitle($aqua);
+}
+
+.button {
+    @include button;
+    margin: auto;
+}

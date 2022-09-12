@@ -1,0 +1,84 @@
+<main class="contact">
+  <section class="contact__content">
+    <h3 class="contact__subtitle">{{ 'contact.contact' | translate }}</h3>
+    <h2 class="contact__title">{{ 'contact.information' | translate }}</h2>
+    <form method="post" class="contact__formulaire" (ngSubmit)='send()' [formGroup]='contactForm' novalidate>
+
+      <div>
+        <input formControlName="name" type="text" name="name" placeholder="{{ 'contact.name' | translate }} *" class="contact__champs">
+        <p class="contact__error" *ngIf="contactForm.get('name')?.errors?.['required'] && isSendContactForm">{{
+          'contact.require' | translate }}</p>
+      </div>
+
+      <div>
+        <input formControlName="email" type="email" name="email" placeholder="{{ 'contact.email' | translate }} *"
+        class="contact__champs" required>
+        <p class="contact__error" *ngIf="contactForm.get('email')?.errors?.['required'] && isSendContactForm">{{
+          'contact.require' | translate }}</p>
+        <p class="contact__error" *ngIf="contactForm.get('email')?.errors?.['email'] && isSendContactForm">{{
+          'contact.email_require' | translate }}</p>
+      </div>
+
+      <div class="selectContainer">
+        <select #option formControlName="status" #select class="select-contact" placeholder="Vous êtes *" required>
+          <option #optionSelected class="select-contact__option" value="particulier">{{ 'contact.individual' | translate }}</option>
+          <option class="select-contact__option" value="entreprise">{{ 'contact.company' | translate }}</option>
+          <option class="select-contact__option" value="enseignant">{{ 'contact.teacher' | translate }}</option>
+        </select>
+        <img class="selectContainer__arrow" src="/assets/icons/arrow-bottom.webp" alt="Voir plus">
+      </div>
+
+      <div *ngIf="contactForm.get('status')?.value === 'entreprise'">
+        <input formControlName="company" type="text" name="entreprise" placeholder="{{ 'contact.company_name' | translate }} *" class="contact__champs" required>
+        <p class="contact__error" *ngIf="contactForm.get('company')?.errors?.['required'] && isSendContactForm">{{
+          'contact.require' | translate }}</p>
+      </div>
+
+      <div *ngIf="contactForm.get('status')?.value === 'enseignant'">
+        <input formControlName="school" type="text" name="enseignant" placeholder="{{ 'contact.school' | translate }} *" class="contact__champs" required>
+        <p class="contact__error" *ngIf="contactForm.get('school')?.errors?.['required'] && isSendContactForm">{{
+          'contact.require' | translate }}</p>
+      </div>
+
+      <div>
+        <input formControlName="subject" type="texte" name="objet" placeholder="{{ 'contact.subject' | translate }} *" class="contact__champs" required>
+        <p class="contact__error" *ngIf="contactForm.get('subject')?.errors?.['required'] && isSendContactForm">{{
+          'contact.require' | translate }}</p>
+      </div>
+
+      <div>
+        <textarea formControlName="message" rows="5" name="texte" class="contact__champs" required placeholder="{{ 'contact.message' | translate }} *"></textarea>
+        <p class="contact__error" *ngIf="contactForm.get('message')?.errors?.['required'] && isSendContactForm">{{
+          'contact.require' | translate }}</p>
+      </div>
+
+      <div class="contact__rgpd">
+        <label class="contact__rgpd-label">
+          <input class="contact__rgpd-checkbox" formControlName="rgpd" type="checkbox" name="rgpd" id="rgpd">
+          {{ 'rgpd.check' | translate }}
+        </label>
+        <p class="contact__error" *ngIf="contactForm.get('message')?.errors?.['required'] && isSendContactForm">{{
+          'contact.require' | translate }}</p>
+      </div>
+
+      <input type="submit" value="{{ 'contact.send' | translate }}" class="contact__button">
+    </form>
+  </section>
+  <aside class="contact__reseaux">
+    <a class="contact__link" *ngIf="email" [href]="email">
+      <fa-icon [icon]="faEnvelope" class="contact__icon"></fa-icon>
+    </a>
+    <a class="contact__link" *ngIf="youtube" [href]="youtube">
+      <fa-icon [icon]="faYoutube" class="contact__icon"></fa-icon>
+    </a>
+    <a class="contact__link" *ngIf="instagram" [href]="instagram">
+      <fa-icon [icon]="faInstagram" class="contact__icon"></fa-icon>
+    </a>
+    <a class="contact__link" *ngIf="linkedin" [href]="linkedin">
+      <fa-icon [icon]="faLinkedin" class="contact__icon"></fa-icon>
+    </a>
+    <a class="contact__link" *ngIf="facebook" [href]="facebook">
+      <fa-icon [icon]="faFacebook" class="contact__icon"></fa-icon>
+    </a>
+  </aside>
+</main>

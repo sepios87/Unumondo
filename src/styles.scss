@@ -1,0 +1,87 @@
+@import "scss/reset", "scss/fonts", "scss/variables", "scss/mixins";
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+  background: white;
+}
+
+input {
+  font-family: "Poppins", sans-serif;
+  color: $darkBlue;
+}
+
+.stop-scrolling {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  padding-right: 17px; //size of the scrollbar in each browser
+
+  // Comme pas de scrollbar sur phone, desactiver le padding
+  @media (pointer:coarse) {
+    padding-right: 0;
+  }
+
+  &::before {
+    content: "";
+    transition: 0.2s;
+    position: fixed;
+    z-index: 1000;
+    background-color: rgba($color: black, $alpha: 0.2);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+.top-button {
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  padding: 5px;
+  background-color: $darkBlue;
+  z-index: 1000;
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  transition: .2s;
+
+  @media screen and (min-width: $mediaTablet) {
+    bottom: 60px;
+    right: 50px;
+  }
+
+  &--visible {
+    opacity: 1;
+    visibility: initial;
+  }
+
+  &__img {
+    object-fit: contain;
+    position: relative;
+    transform: rotate(180deg);
+  }
+}

@@ -1,0 +1,147 @@
+@mixin bckImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  bottom: 0;
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    min-height: 100%;
+    min-width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+}
+
+@mixin subTitle($color: white) {
+  text-transform: uppercase;
+  color: $color;
+  text-align: center;
+  font-weight: $regular;
+  font-size: 18px;
+  letter-spacing: 10px;
+  padding-left: 12px;
+  line-height: 150%;
+
+  @media screen and (min-width: $mediaPhone) {
+    letter-spacing: 15px;
+  }
+}
+
+@mixin title($color: white) {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: $bold;
+  font-size: 30px;
+  letter-spacing: normal;
+  color: $color;
+  margin: $marginSmall;
+  line-height: 35px;
+
+  @media screen and (min-width: $mediaPhone) {
+    font-size: 50px;
+    line-height: 1.2;
+  }
+}
+
+@mixin text($color: $darkBlue) {
+  font-size: 16px;
+  line-height: 1.65;
+  color: $color;
+  font-weight: $regular;
+  max-width: 1800px;
+
+  @media screen and (min-width: $mediaPhone) {
+    font-size: 17px;
+  }
+}
+
+@mixin avatar($size: 150px) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  background-size: cover;
+  background-position: center;
+}
+
+@mixin filter($direction: top, $color: $darkBlue, $percent: 100%) {
+  $rotation: 180deg;
+
+  @if $direction==bottom {
+    $rotation: 0deg;
+  }
+
+  @else if $direction==left {
+    $rotation: 260deg;
+  }
+
+  @else if $direction==right {
+    $rotation: 90deg;
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient($rotation,
+        transparent 100% - $percent,
+        $color 100%);
+  }
+}
+
+@mixin button($isFilled: true, $color: $darkBlue, $hover: true) {
+  display: block;
+  width: fit-content;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  font-size: 15px;
+  padding: 10px 20px;
+  color: white;
+  margin: 0;
+  line-height: 1.4;
+
+  @media screen and (min-width: $mediaPhone) {
+    font-size: 16px;
+    padding: 15px 25px;
+  }
+
+  @if $isFilled {
+    background: $color;
+    border: 1px solid transparent;
+
+    @if $hover {
+      &:hover {
+        background: none;
+        color: $color;
+        border: 1px solid $color;
+      }
+    }
+  }
+
+  @else {
+    border: 1px solid white;
+    text-transform: uppercase;
+
+    @if $hover {
+      &:hover {
+        background: white;
+        color: $color;
+      }
+    }
+  }
+
+  &:first-letter {
+    text-transform: uppercase;
+  }
+}

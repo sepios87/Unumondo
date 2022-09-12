@@ -1,0 +1,14 @@
+<section class="section" *ngIf="fiches.length > 0">
+    <h3 class="subtitle">{{ 'pedagogy.read' | translate }}</h3>
+    <h2 class="title">{{ 'pedagogy.sheets' | translate }}</h2>
+    <div class="search">
+        <label class="search__label" for="search">
+            <img src="/assets/icons/search.webp" alt="search"/> 
+        </label>
+        <input class="search__input" type="text" (keyup)="onSearch($event.target)" name="search" id="search" list="dynmicSearch" placeholder="Rechercher" autocomplete="off"/>
+        <datalist class="datalist" id="dynmicSearch">
+            <option class="datalist__item" *ngFor="let niveau of niveaux" [value]="niveau.nom">{{niveau.nom}}</option>
+        </datalist>
+    </div>
+    <app-swiper [list]="fichesFilter"></app-swiper>
+</section>

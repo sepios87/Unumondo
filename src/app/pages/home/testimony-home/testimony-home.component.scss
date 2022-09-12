@@ -1,0 +1,59 @@
+@import "src/scss/mixins", "src/scss/variables";
+
+.temoignage {
+    margin-top: $marginBig;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    padding: $marginMedium 0 $marginBottomNav;
+
+    &__wrapper {
+        background: rgba($color: $darkBlue, $alpha: 0.8);
+        width: 90%;
+        color: white;
+        backdrop-filter: blur(5px);
+    }
+
+    &__image {
+        @include avatar;
+        margin: $marginMedium auto $marginSmall;
+    }
+
+    &__content {
+        padding: 5% 10% 10%;
+        text-align: center;
+
+        p {
+            @include text(white);
+        }
+
+        h3 {
+            font-size: 23px;
+            margin-top: 70px;
+            font-weight: $bold;
+        }
+
+        h4 {
+            margin-top: 10px;
+        }
+    }
+}
+
+@media screen and (min-width: $mediaPhone) {
+
+    .temoignage {
+
+        &__wrapper {
+            width: 50%;
+        }
+
+        &__content {
+            p {
+                font-size: 20px;
+            }
+        }
+
+    }
+}

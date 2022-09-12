@@ -1,0 +1,79 @@
+@import "src/scss/mixins", "src/scss/variables";
+
+.header {
+    height: 100vh;
+    width: 100%;
+
+    .background {
+        @include bckImg;
+        @include filter(bottom, rgba(black, 0.5));
+    }
+
+    &__arrow {
+        cursor: pointer;
+        width: 25px;
+        position: absolute;
+        bottom: 100px;
+        z-index: 1;
+        left: 50%;
+        transform: translate(-50%, 0);
+        animation: bottomTranslate 2s infinite;
+
+        @media screen and (min-width: $mediaTablet) {
+            bottom: 30px;
+        }
+    }
+}
+
+@keyframes bottomTranslate {
+    0% {
+        transform: translate(-50%, 0);
+    }
+
+    20% {
+        transform: translate(-50%, 8px);
+    }
+
+    40% {
+        transform: translate(-50%, 0);
+    }
+}
+
+.slider {
+    width: 100%;
+    height: 100vh;
+
+    &__container {
+        height: 100vh;
+        width: 100%;
+    }
+
+    &__subtitle {
+        @include subTitle;
+        padding-top: calc(120px + 25vh);
+
+        @media screen and (max-height: 650px) {
+            padding-top: calc(120px + 10vh);
+        }
+    }
+
+    &__title {
+        @include title;
+    }
+
+    &__separator {
+        background: white;
+        height: 1px;
+        width: 200px;
+        margin: $marginMedium auto 0;
+    }
+
+    &__button {
+        @include button(true, $darkBlue, false);
+        margin: 10vh auto 0;
+
+        @media screen and (max-height: 550px) {
+            margin: 3vh auto 0;
+        }
+    }
+}

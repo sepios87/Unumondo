@@ -1,0 +1,4 @@
+<div class="background">
+  <img class="background__logo" src="/assets/images/logo-blue.webp" alt="Unu mondo Expedition">
+  <div class="loader" [ngStyle]="{'width' : (50+(($loadingObservable | async) ?? 0)/3)+'px'}"></div>
+</div>

@@ -1,0 +1,13 @@
+<section class="equipe">
+    <h3 class="subtitle">{{ 'team.our_team' | translate }}</h3>
+    <h2 class="title">{{ 'home.help' | translate }}</h2>
+    <div class="equipe__container">
+        <a *ngFor="let member of members; trackBy: trackById" routerLink="/team" fragment="{{member.id}}" class="equipe__link">
+            <img loading="lazy" class="equipe__membre" [src]="member.photo.getUrl('avatar')" [alt]="member.photo.titre">
+        </a>
+        <a class="equipe__membre equipe__membre--count" *ngIf="membersCount" routerLink="/team" fragment="volunteers">
+            <h3>{{ 'team.more' | translate }} <span>{{ membersCount }}</span></h3>
+        </a>
+    </div>
+    <a class="button" routerLink="/team">{{ 'button.team' | translate }}</a>
+</section>

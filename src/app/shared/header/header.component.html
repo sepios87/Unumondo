@@ -1,0 +1,10 @@
+<section class="top">
+    <h3 class="top__subtitle ">{{subtitle}}</h3>
+    <h1 class="top__title">{{title}}</h1>
+    <div class="top__separator"></div>
+    <div class="top__background">
+        <!-- Pas de alt ici car images d'illustration + sinon scintille  -->
+        <img [src]="img">
+    </div>
+    <img (click)="scroll()" class="top__arrow" src="/assets/icons/arrow-bottom.webp" alt="fleche pour descendre en bas"/>
+</section>

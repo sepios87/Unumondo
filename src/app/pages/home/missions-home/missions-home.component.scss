@@ -1,0 +1,92 @@
+@import "src/scss/mixins", "src/scss/variables";
+
+.title {
+    @include title($darkBlue);
+}
+
+.subtitle {
+    @include subTitle($aqua);
+}
+
+.missions {
+    margin-top: $marginBig;
+
+    .selector {
+        display: flex;
+        flex-wrap: wrap;
+        color: white;
+        margin: $marginMedium 0;
+
+        &__item {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            height: 400px;
+
+            @media screen and (min-width: $mediaPhone) {
+                width: 50%;
+            }
+
+            @media screen and (hover: hover) {
+                &:hover {
+
+                    .selector__subtitle,
+                    .selector__title {
+                        transform: translateX(-100%);
+                    }
+
+                    .selector__hideText {
+                        transform: translate(0, -50%);
+                    }
+                }
+            }
+        }
+
+        &__title {
+            @include title;
+            transition: all 0.5s ease-in-out;
+            margin-top: 100px;
+
+            @media screen and (min-width: $mediaLaptop) {
+                margin-top: 120px;
+            }
+        }
+
+        &__subtitle {
+            @include subTitle($aqua);
+            transition: all 0.5s ease-in-out;
+            margin: 10px 0;
+        }
+
+        &__button {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            @include button(false);
+        }
+
+        &__background {
+            @include bckImg;
+            @include filter;
+        }
+
+        &__hideText {
+            transition: 0.5s ease-in-out;
+            position: absolute;
+            line-height: 1.65;
+            text-align: center;
+            width: 100%;
+            padding: 0 10%;
+            top: 50%;
+            right: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transform: translate(100%, -50%);
+            height: 140px;
+        }
+    }
+}

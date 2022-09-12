@@ -1,0 +1,55 @@
+<footer class="footer">
+  <div class="footer__waves">
+    <span class="footer__wave" id="wave1"></span>
+    <span class="footer__wave" id="wave2"></span>
+    <span class="footer__wave" id="wave3"></span>
+  </div>
+  <section class="footer__informations">
+    <a class="footer__logo" routerLink="/">
+      <img src="/assets/images/logo_long.webp" alt="Logo Unumundo">
+    </a>
+    <ul class="footer__menu">
+      <li class="footer__item"><a routerLink="/gallery">{{ 'nav.gallery' | translate }}</a></li>
+      <li class="footer__item"><a routerLink="/partners">{{ 'nav.partner' | translate }}</a></li>
+      <li class="footer__item"><a routerLink="/team">{{ 'nav.team' | translate }}</a></li>
+      <li class="footer__item"><a routerLink="/contact">{{ 'nav.contact' | translate }}</a></li>
+      <li class="footer__item"><button (click)="openModalContribuer()">{{ 'button.contribute' | translate }}</button></li>
+    </ul>
+    <ul class="footer__icons">
+      <li *ngIf="youtube">
+        <a [href]="youtube">
+          <fa-icon class="footer__icon" [icon]="faYoutube"></fa-icon>
+        </a>
+      </li>
+      <li *ngIf="instagram">
+        <a [href]="instagram">
+          <fa-icon class="footer__icon" [icon]="faInstagram"></fa-icon>
+        </a>
+      </li>
+      <li *ngIf="facebook">
+        <a [href]="facebook">
+          <fa-icon class="footer__icon" [icon]="faFacebook"></fa-icon>
+        </a>
+      </li>
+      <li *ngIf="linkedin">
+        <a [href]="linkedin">
+          <fa-icon class="footer__icon" [icon]="faLinkedin"></fa-icon>
+        </a>
+      </li>
+      <li *ngIf="email">
+        <a [href]="email">
+          <fa-icon class="footer__icon" [icon]="faEnvelope"></fa-icon>
+        </a>
+      </li>
+    </ul>
+  </section>
+  <span class="footer__barre"></span>
+  <section class="footer__informations">
+    <form class="footer__newsletter" (ngSubmit)='subscribe()' [formGroup]='newsletterForm' novalidate>
+      <label for="email" class="footer__label">{{ 'newsletter' | translate }}</label>
+      <input class="footer__email" formControlName="email" type="email" id="email" placeholder="{{ 'contact.email' | translate }}">
+      <input class="footer__submit" type="submit" value="{{ 'button.subscribe' | translate }}">
+    </form>
+    <a class="footer__link" routerLink="/mentions-legales" routerLinkActive="router-link-active">{{ 'rgpd.title' | translate }}</a>
+  </section>
+</footer>

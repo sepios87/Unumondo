@@ -1,0 +1,71 @@
+@import "src/scss/mixins", "src/scss/variables";
+
+.top {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+
+  &__arrow {
+    cursor: pointer;
+    width: 25px;
+    position: absolute;
+    bottom: 30px;
+    z-index: 1;
+    left: 50%;
+    transform: translate(-50%, 0);
+    animation: bottomTranslate 2s infinite;
+  }
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    bottom: 0;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include filter(bottom, rgba(black, 0.5));
+
+    img {
+      min-height: 100%;
+      min-width: 100%;
+      display: block;
+      object-fit: cover;
+      height: 100%;
+    }
+  }
+
+  &__subtitle {
+    @include subTitle;
+    padding-top: calc(120px + 25vh);
+  }
+
+  &__title {
+    @include title;
+  }
+
+  &__separator {
+    background: white;
+    height: 1px;
+    width: 200px;
+    margin: $marginMedium auto 0;
+  }
+}
+
+@keyframes bottomTranslate {
+  0% {
+    transform: translate(-50%, 0);
+  }
+
+  20% {
+    transform: translate(-50%, 8px);
+  }
+
+  40% {
+    transform: translate(-50%, 0);
+  }
+}

@@ -1,0 +1,35 @@
+<div class="membre" *ngIf="membre">
+  <div>
+    <div class="vignette" [ngClass]="{'vignette--without-hover': !membre.isWithoutSocialsNetworks()}">
+      <img class="vignette__img" loading="lazy" [src]="membre.photo.getUrl('avatar')" [alt]="membre.photo.titre">
+    </div>
+  </div>
+  <h3 class="membre-info membre-nom" *ngIf="showInfos">{{ membre.prenom }} {{ membre.nom }}</h3>
+  <p class="membre-info membre-fonction" *ngIf="showInfos">{{ fonction }}</p>
+  <div class="membre-socials" *ngIf="showInfos">
+    <a [href]="membre.instagram" target="_blank" rel="noopener noreferrer" *ngIf="membre.instagram">
+      <fa-icon [icon]="faInstagram" class="membre-icon"></fa-icon>
+    </a>
+    <a [href]="membre.facebook" target="_blank" rel="noopener noreferrer" *ngIf="membre.facebook">
+      <fa-icon [icon]="faFacebook" class="membre-icon"></fa-icon>
+    </a>
+    <a [href]="membre.twitter" target="_blank" rel="noopener noreferrer" *ngIf="membre.twitter">
+      <fa-icon [icon]="faTwitter" class="membre-icon"></fa-icon>
+    </a>
+    <a [href]="membre.linkedin" target="_blank" rel="noopener noreferrer" *ngIf="membre.linkedin">
+      <fa-icon [icon]="faLinkedin" class="membre-icon"></fa-icon>
+    </a>
+    <a [href]="membre.youtube" target="_blank" rel="noopener noreferrer" *ngIf="membre.youtube">
+      <fa-icon [icon]="faYoutube" class="membre-icon"></fa-icon>
+    </a>
+    <a [href]="membre.siteWeb" target="_blank" rel="noopener noreferrer" *ngIf="membre.siteWeb">
+      <fa-icon [icon]="faGlobe" class="membre-icon"></fa-icon>
+    </a>
+  </div>
+</div>
+
+<div class="membre" *ngIf="summary">
+  <div class="vignette vignette--count" *ngIf="numberVolunteer">
+    <h3>{{ 'team.more' | translate }} <span>{{ numberVolunteer }}</span></h3>
+  </div>
+</div>

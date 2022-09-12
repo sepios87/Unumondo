@@ -1,0 +1,49 @@
+<div class="header__responsiveNav responsiveNav" [ngClass]="{'open': isOpen}" appClickOutside (clickOutside)="toggleNav(false)">
+  <button class="responsiveNav__contribuer" (click)="openModalContribuer()">
+    <img src="/assets/icons/contribute.webp" alt="icon contribuer" />
+    <p>{{ 'nav.contribute' | translate }}</p>
+  </button>
+  <div class="responsiveNav__toggle" (click)="toggleNav()">
+    <p>Menu</p>
+    <div class="responsiveNav__animContainer">
+      <div class="responsiveNav__anim"></div>
+    </div>
+  </div>
+</div>
+<nav class="header__nav nav">
+  <ul class="nav__list" [ngClass]="{'nav__list--open': isOpen}">
+    <li class="nav__item nav__item--onlyResponsive">
+      <a (click)="toggleNav()" routerLink="/">{{ 'nav.home' | translate }}</a>
+    </li>
+    <li class="nav__item">
+      <a (click)="toggleNav()" routerLink="/missions" [routerLinkActive]="['nav__item--active']">{{ 'nav.missions' | translate }}</a>
+    </li>
+    <li class="nav__item">
+      <a (click)="toggleNav()" routerLink="/boat" [routerLinkActive]="['nav__item--active']">{{ 'nav.boat' | translate }}</a>
+    </li>
+    <li class="nav__item">
+      <a (click)="toggleNav()" routerLink="/pedagogy" [routerLinkActive]="['nav__item--active']">{{ 'nav.pedagogy' | translate }}</a>
+    </li>
+    <li class="nav__item nav__item--logo">
+      <a (click)="toggleNav()" routerLink="/"><img src="/assets/images/logo.webp" title="{{ 'nav.home' | translate }}"></a>
+    </li>
+    <li class="nav__item">
+      <a (click)="toggleNav()" routerLink="/expeditions" [routerLinkActive]="['nav__item--active']">{{ 'nav.expeditions' | translate }}</a>
+    </li>
+    <li class="nav__item">
+      <a (click)="toggleNav()" routerLink="/gallery" [routerLinkActive]="['nav__item--active']">{{ 'nav.gallery' | translate }}</a>
+    </li>
+    <li class="nav__item nav__item--onlyResponsive">
+      <a (click)="toggleNav()" routerLink="/partners" [routerLinkActive]="['nav__item--active']">{{ 'nav.partner' | translate }}</a>
+    </li>
+    <li class="nav__item">
+      <a (click)="toggleNav()" routerLink="/contact" [routerLinkActive]="['nav__item--active']">{{ 'nav.contact' | translate }}</a>
+    </li>
+    <li class="nav__item nav__item--onlyResponsive">
+      <a (click)="toggleNav()" routerLink="/mentions-legales">{{ 'rgpd.title' | translate }}</a>
+    </li>
+  </ul>
+  <a class="nav__headerLogo" routerLink="/">
+    <img src="/assets/images/logo.webp" alt="Logo de l'association Unu Mondo">
+  </a>
+</nav>

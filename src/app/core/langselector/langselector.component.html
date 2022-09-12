@@ -1,0 +1,5 @@
+<div #langSelector class="header__langSelector langSelector fr">
+  <p id="fr" class="langSelector__item" [ngClass]="{'langSelector__item--selected': langueActuelle === langues.fr}" (click)="changeLangue(langues.fr, $event)">FR</p>
+  /
+  <p id="en" class="langSelector__item" [ngClass]="{'langSelector__item--selected': langueActuelle === langues.en}" (click)="changeLangue(langues.en, $event)">EN</p>
+</div>

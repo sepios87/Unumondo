@@ -1,0 +1,7 @@
+<app-nav></app-nav>
+<app-langselector></app-langselector>
+<router-outlet></router-outlet>
+<span [ngClass]="{'top-button--visible' : isScrollable}" (click)="scrollToTop()" class="top-button"><img class="top-button__img" src="/assets/icons/arrow-bottom.webp" alt="fleche pour retourner en haut"/></span>
+<!-- Pour acceder a la modal partout dans l'app -->
+<app-contribuer></app-contribuer>
+<app-footer></app-footer>

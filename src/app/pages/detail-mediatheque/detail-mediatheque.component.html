@@ -1,0 +1,19 @@
+<app-header [title]="collectionName" subtitle="Unu mondo" img="/assets/images/header/ice2.webp"></app-header>
+<div (click)="closeSelectedImage()" class="popup" *ngIf="selectedItem">
+    <img [src]="selectedItem" />
+</div>
+<section *ngIf="videos.length > 0">
+    <h2 class="title">Videos</h2>
+    <app-swiper [list]="videos" [isVideo]="true"></app-swiper>
+</section>
+<section *ngIf="podcasts.length > 0">
+    <h2 class="title">Podcasts</h2>
+    <app-swiper [list]="podcasts" [isAudio]="true"></app-swiper>
+</section>
+<section *ngIf="photos.length > 0">
+    <h2 class="title">Photos</h2>
+    <div class="details-gallery">
+        <img (click)="selectImage(image.getUrl('geante'))" class="details-gallery__item" *ngFor="let image of photos"
+            [src]="image.getUrl('grande')">
+    </div>
+</section>

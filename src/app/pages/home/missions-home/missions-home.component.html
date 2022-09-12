@@ -1,0 +1,16 @@
+<section class="missions">
+    <h3 class="subtitle">{{ 'home.inform' | translate }}</h3>
+    <h2 class="title">{{ 'home.missions' | translate }}</h2>
+    <div class="missions__selector selector">
+        <article class="selector__item" *ngFor="let mission of missions; trackBy: trackById">
+            <h4 class="selector__title">{{mission.nom}}</h4>
+            <h5 class="selector__subtitle">{{ 'home.what_we_do' | translate }}</h5>
+            <a class="selector__button" routerLink="/missions" fragment="{{mission.id}}">{{ 'button.find' | translate
+                }}</a>
+            <figure class="selector__background">
+                <img loading="lazy" [src]="mission.image.getUrl('moyenne')" [alt]="mission.image.titre">
+                <figcaption class="selector__hideText" [innerHTML]="mission.description"></figcaption>
+            </figure>
+        </article>
+    </div>
+</section>

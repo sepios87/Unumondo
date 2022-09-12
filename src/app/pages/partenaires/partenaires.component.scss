@@ -1,0 +1,96 @@
+@import "src/scss/mixins", "src/scss/variables";
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    @include title($darkBlue);
+    margin: $marginMedium auto;
+  }
+
+  &__sponsors {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-bottom: $marginMedium;
+  }
+
+  &__img {
+    margin: $marginSmall 0;
+    width: 150px;
+    object-fit: contain;
+
+    @media screen and (min-width: $mediaPhone) {
+      width: 180px;
+    }
+  }
+
+  &__button {
+    @include button;
+  }
+}
+
+.section {
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &:last-child {
+    margin-bottom: $marginBottomNav;
+  }
+
+  &__title {
+    @include title($darkBlue);
+    margin: $marginMedium auto;
+
+    @media screen and (min-width: $mediaPhone) {
+      margin-top: $marginBig
+    }
+  }
+
+  &__sponsors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-around;
+
+    @media screen and (min-width: $mediaTablet) {
+      flex-direction: row;
+      column-gap: 100px;
+    }
+  }
+
+  &__mecene {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__mecene-name {
+    @include text;
+  }
+
+  &__img {
+    margin: 2rem 0;
+    width: 120px;
+    object-fit: contain;
+
+    @media screen and (min-width: $mediaPhone) {
+      width: 140px;
+    }
+
+    &--avatar {
+      @include avatar(120px);
+
+      @media screen and (min-width: $mediaPhone) {
+        @include avatar(140px);
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+<div class="swiper">
+    <owl-carousel-o [options]="customOptions" #owlCar class="swiper__slider">
+        <ng-template carouselSlide [dataMerge]="i" *ngFor="let itemList of list; trackBy: trackById; let i = index">
+            <div (click)="onClickItem(itemList)"
+                class="swiper__link"
+            >
+                <div class="swiper__img-container">
+                    <img [ngClass]="{'swiper__img--contain': isContain}" class="swiper__img"
+                        [src]="itemList.asset.getUrl('moyenne')" [alt]="itemList.asset.titre">
+                    <span class="swiper__play" *ngIf="isVideo"></span>
+                    <audio class="audio" *ngIf="isAudio" controls [src]="itemList.link"></audio>
+                </div>
+                <p class="swiper__subtitle">{{itemList.subtitle}}</p>
+                <p class="swiper__title">{{itemList.title}}</p>
+            </div>
+        </ng-template>
+    </owl-carousel-o>
+    <img *ngIf="list.length > 1" class="swiper__button swiper__button--left" (click)="owlCar.prev()"
+        src="/assets/icons/arrow-left.webp" alt="Élément précédent">
+    <img *ngIf="list.length > 1" class="swiper__button swiper__button--right" (click)="owlCar.next()"
+        src="/assets/icons/arrow-right.webp" alt="Élément suivant">
+</div>

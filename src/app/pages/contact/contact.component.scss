@@ -1,0 +1,130 @@
+@import "src/scss/mixins", "src/scss/variables";
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: $marginBottomNav;
+
+  &__subtitle {
+    @include subTitle($aqua);
+  }
+
+  &__title {
+    @include title($darkBlue);
+  }
+
+  &__text {
+    @include text;
+    margin: 0 $marginSmall;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+    margin-top: $marginMedium;
+
+    @media (min-width: $mediaTablet) {
+      flex-direction: row;
+      gap: 40px;
+    }
+  }
+
+  &__button {
+    @include button;
+    line-height: 1;
+  }
+
+}
+
+.newsletter {
+  margin-bottom: 10rem;
+  &__subtitle {
+    @include subTitle($aqua);
+  }
+  &__title {
+    @include title($darkBlue);
+    margin-bottom: 50px;
+  }
+  .article {
+    display: flex;
+    flex-direction: column;
+    &__img {
+      width: 100%;
+      margin: auto;
+      max-height: 500px;
+    }
+    &__fond {
+      margin: 3vh auto;
+      width: 80%;
+      display: flex;
+
+      img {
+        box-shadow: -10px 10px 0px 1px $darkBlue;
+      }
+    }
+    &__contenus {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 10%;
+    }
+    &__contenu {
+      margin-bottom: 2rem;
+    }
+    &__titre {
+      @include title($darkBlue);
+      text-align: unset;
+      font-size: 22px;
+      border-left: 2px solid $aqua;
+      padding: 1rem 0 1rem 10px;
+    }
+    &__texte {
+      color: $darkBlue;
+      border-left: 2px solid $darkBlue;
+      padding: 1rem 0 1rem 10px;
+      font-size: 16px;
+      line-height: 1.3;
+    }
+  }
+}
+.form {
+  padding-bottom: 10rem;
+  &__titre {
+    @include title($darkBlue);
+
+    @media (min-width: $mediaTablet) {
+      margin-bottom: 4rem;
+    }
+  }
+  .inscription {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width: $mediaTablet) {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      width: 100%;
+      &__email {
+        width: 30%;
+      }
+      &__bouton {
+        margin-left: 4rem;
+      }
+    }
+    &__email {
+      border-bottom: 1px solid $darkBlue;
+      margin: 2rem 0;
+      width: 80%;
+    }
+    &__bouton {
+      @include button;
+    }
+  }
+}

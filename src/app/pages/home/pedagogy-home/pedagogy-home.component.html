@@ -1,0 +1,11 @@
+<section class="peda">
+    <h3 class="subtitle">{{ 'home.awareness' | translate }}</h3>
+    <h2 class="title">{{ 'nav.pedagogy' | translate }}</h2>
+    <div class="peda__info info">
+        <img loading="lazy" class="info__image" src="/assets/images/peda.webp" alt="Accompagnement des jeunes">
+        <div class="info__content">
+            <div *ngIf="descriptionPedagogie" [innerHTML]="descriptionPedagogie"></div>
+            <a class="button" routerLink="/pedagogy">{{ 'button.sheets' | translate }}</a>
+        </div>
+    </div>
+</section>

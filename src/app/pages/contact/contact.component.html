@@ -1,0 +1,23 @@
+<app-header title="{{ 'nav.contact' | translate}}" subtitle="Unu mondo" img="/assets/images/header/ice2.webp"></app-header>
+<app-formulaire></app-formulaire>
+<section class="section">
+  <h3 class="section__subtitle">{{ 'support' | translate }}</h3>
+  <h2 class="section__title">{{ 'contact.continue_adventure' | translate }}</h2>
+  <p class="section__text">{{ 'contact.desc' | translate }}</p>
+  <div class="section__buttons">
+    <button (click)="openModalContribuer()" class="section__button">{{ 'support' | translate }}</button>
+    <a routerLink="/team" routerLinkActive="router-link-active" class="section__button">{{ 'team.our_team' | translate }}</a>
+  </div>
+</section>
+<section class="newsletter">
+  <h3 class="newsletter__subtitle">{{ 'follow' | translate }}</h3>
+  <h2 class="newsletter__title">{{ 'contact.discover_newsletter' | translate }}</h2>
+  <div class="form">
+    <form (ngSubmit)='subscribe()' [formGroup]='newsletterForm' novalidate>
+      <div class="inscription">
+        <input class="inscription__email" formControlName="email" type="email" placeholder="{{ 'contact.email' | translate }}" />
+        <input class="inscription__bouton" type="submit" value="{{ 'button.subscribe' | translate }}" />
+      </div>
+    </form>
+  </div>
+</section>

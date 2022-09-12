@@ -1,0 +1,139 @@
+@import "src/scss/mixins", "src/scss/variables";
+
+section:last-child {
+  margin-bottom: 20rem;
+}
+
+.button {
+  @include button;
+  margin: $marginMedium auto;
+  max-width: 300px;
+}
+
+.title {
+  @include title($darkBlue);
+}
+
+.subtitle {
+  @include subTitle($aqua);
+}
+
+.carte {
+  display: none;
+  margin: $marginBig 0;
+
+  @media screen and (min-width: $mediaPhone) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__image {
+    width: 95%;
+    max-height: 80%;
+    object-fit: cover;
+
+    @media screen and (min-width: $mediaPhone) {
+      width: 60%;
+    }
+  }
+}
+
+.slider {
+  width: 85%;
+  margin: 90px auto;
+  position: relative;
+
+  &__subtitle {
+    font-weight: $bold;
+    text-transform: uppercase;
+    color: $darkBlue;
+    font-size: 16px;
+  }
+
+  &__title {
+    font-size: 45px;
+    margin: 15px 0 $marginMedium;
+    font-weight: $bold;
+    color: $aqua;
+    text-transform: uppercase;
+  }
+}
+
+.temoignage {
+  margin-top: $marginBig;
+  width: 80%;
+  margin: 0 auto;
+
+  @media screen and (min-width: $mediaPhone) {
+    width: 100%;
+  }
+
+  &__container {
+    flex-direction: column;
+    margin: $marginMedium auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    row-gap: $marginMedium;
+
+    @media screen and (min-width: $mediaPhone) {
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+  }
+
+  &__item {
+    width: 100%;
+    height: auto;
+
+    @media screen and (min-width: $mediaPhone) {
+      width: 45%;
+    }
+  }
+
+  &__figure {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+
+    @media screen and (min-width: $mediaPhone) {
+      flex-direction: row;
+      column-gap: $marginSmall;
+    }
+  }
+
+  &__image {
+    width: 150px;
+    height: 150px;
+    border-radius: 99px;
+    border: 5px solid $aqua;
+    object-fit: cover;
+
+    @media screen and (min-width: $mediaPhone) {
+      margin-bottom: calc($marginSmall + 17px);
+    }
+  }
+
+  &__content {
+    margin: $marginSmall 0;
+
+    p {
+      @include text;
+    }
+
+    h4 {
+      color: $aqua;
+      font-weight: $bold;
+      font-size: 17px;
+      margin-top: $marginSmall;
+      text-align: center;
+
+      @media screen and (min-width: $mediaPhone) {
+        text-align: left;
+      }
+    }
+  }
+
+}

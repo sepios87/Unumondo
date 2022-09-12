@@ -1,0 +1,68 @@
+@import "src/scss/variables";
+
+$animation-duration: 2000ms;
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1001;
+  background-color: white;
+
+  &__logo {
+    height: 100px;
+    margin: 10rem auto auto;
+  }
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 10px;
+  background: $aqua;
+  border-radius: 5px;
+  animation: load $animation-duration ease-in-out infinite;
+  transition: 1s;
+
+  &:before,
+  &:after {
+    position: absolute;
+    display: block;
+    content: "";
+    animation: load $animation-duration ease-in-out infinite;
+    height: 10px;
+    border-radius: 5px;
+  }
+
+  &:before {
+    top: -20px;
+    left: 10px;
+    width: 50%;
+    background: $darkBlue;
+  }
+
+  &:after {
+    bottom: -20px;
+    width: 40%;
+    background: $midBlue;
+  }
+}
+
+@keyframes load {
+  0% {
+    transform: translateX(40px);
+  }
+
+  50% {
+    transform: translateX(-30px);
+  }
+
+  100% {
+    transform: translateX(40px);
+  }
+}

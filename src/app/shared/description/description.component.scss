@@ -1,0 +1,50 @@
+@import "src/scss/mixins", "src/scss/variables";
+
+.section {
+  @media screen and (max-width: $mediaLaptop) {
+    justify-content: center;
+  }
+}
+
+.description {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  background-size: cover;
+  @include filter();
+  padding-bottom: $marginBottomNav;
+
+  @media screen and (min-width: $mediaPhone) {
+    height: 100vh;
+    padding-bottom: 0;
+    @include filter(right);
+  }
+
+  &--left {
+    @media screen and (min-width: $mediaPhone) {
+      justify-content: flex-start;
+      @include filter(left);
+    }
+  }
+
+  &__title {
+    @include title(white);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    margin: $marginMedium;
+
+    @media screen and (min-width: $mediaLaptop) {
+      width: 50%;
+      margin: $marginBig;
+    }
+  }
+
+  &__text {
+    @include text(white);
+  }
+}

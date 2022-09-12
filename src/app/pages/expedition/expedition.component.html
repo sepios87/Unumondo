@@ -1,0 +1,39 @@
+<ng-container *ngIf="expedition">
+  <app-header [title]="expedition.nom" subtitle="{{ 'expedition.expedition' | translate }}"
+    [img]="expedition.imageSlider.getUrl()"></app-header>
+  <section class="carte">
+    <img class="carte__image" [src]="expedition.carte?.getUrl('grande')" alt="Carte de navigation">
+  </section>
+
+
+  <ng-container *ngFor='let _ of counter(4); let i = index; odd as isOdd;'>
+    <app-numbers *ngIf="chiffres.length > 0 && i === 2" imgUrl="/assets/images/numbers.webp" [numbers]="chiffres"></app-numbers>
+    <app-description [direction]="isOdd ? 'right' : 'left'" image="{{expedition.images[i]?.getUrl('grande')}}"
+      desc="{{expedition.descriptions[i]}}">
+    </app-description>
+  </ng-container>
+
+  <a routerLink="/gallery" class="button">{{ 'expedition.button' | translate}}</a>
+
+  <section class="slider" *ngIf="membres.length > 0">
+    <h3 class="slider__subtitle">{{ 'team.members' | translate }}</h3>
+    <h2 class="slider__title">{{ 'team.equipment' | translate }}</h2>
+    <app-swiper [list]="membres"></app-swiper>
+  </section>
+
+  <section class="temoignage" *ngIf="temoignages?.length">
+    <h3 class="subtitle">{{ 'expedition.see-our' | translate}}</h3>
+    <h2 class="title">{{ 'expedition.testimonials' | translate}}</h2>
+    <div class="temoignage__container">
+      <article *ngFor="let temoignage of temoignages; trackBy: trackById" class="temoignage__item">
+        <figure class="temoignage__figure">
+          <img class="temoignage__image" [src]="temoignage.photo.getUrl('moyenne')" [alt]="temoignage.photo.titre">
+          <figcaption class="temoignage__content">
+            <p [innerHTML]="temoignage.contenu"></p>
+            <h4>{{ temoignage.prenom + ' ' + temoignage.nom }} <br></h4>
+          </figcaption>
+        </figure>
+      </article>
+    </div>
+  </section>
+</ng-container>

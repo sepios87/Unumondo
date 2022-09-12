@@ -1,0 +1,92 @@
+@import "src/scss/mixins";
+@import "src/scss/variables";
+
+.membre {
+  width: 40rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.vignette {
+  @include avatar(20rem);
+  position: relative;
+
+  &__img {
+    @include avatar(20rem);
+  }
+
+  &--count {
+    background-color: $aqua;
+    grid-column: 2;
+    grid-row: 2;
+    text-transform: uppercase;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+  
+    span {
+        font-weight: bold;
+        display: block;
+        text-align: center;
+        font-size: 25px;
+    }
+  }
+}
+
+.membre {
+  &-info {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  &-nom {
+    margin: 10px;
+    font: {
+      size: 20px;
+      weight: $bold;
+    }
+    color: $midBlue;
+  }
+
+  &-fonction {
+    font-size: 18px;
+    color: $darkBlue;
+  }
+
+  &-socials {
+    display: flex;
+    gap: 2rem;
+  }
+
+  &-icon {
+    color: $darkBlue;
+    font-size: 20px;
+  }
+}
+
+.volunteer-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  text-transform: uppercase;
+}
+
+.bold {
+  font: {
+    size: 50px;
+    weight: 600;
+  }
+}

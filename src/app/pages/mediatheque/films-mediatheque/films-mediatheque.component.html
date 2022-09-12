@@ -1,0 +1,22 @@
+<section class="section" *ngIf="films.length > 0">
+    <h2 class="title">{{ 'gallery.our_film' | translate }}</h2>
+    <article *ngFor="let film of films; trackBy: trackById" class="article">
+        <a class="article__affiche" href="{{film.lienTrailer}}" target="_blank" rel="noopener noreferrer">
+            <img class="article__img-affiche" [src]="film.affiche.getUrl('moyenne')" [alt]="film.affiche.titre">
+        </a>
+        <div class="article__information">
+            <div *ngIf="film.palmares" class="article__btns">
+                <img *ngFor="let palamres of film.palmares; trackBy: trackById" [src]="palamres.getUrl()"
+                    [alt]="palamres.description" class="article__logo">
+            </div>
+            <h2 class="title">{{film.titre}}</h2>
+            <article class="article__text" [innerHTML]="film.description"></article>
+            <div class="article__btns">
+                <a *ngIf="film.lienFilm" href="{{ film.lienFilm }}" class="article__button" target="_blank"
+                    rel="noopener noreferrer">{{ 'button.film' | translate }}</a>
+                <a *ngIf="film.lienTrailer" href="{{ film.lienTrailer }}" class="article__button" target="_blank"
+                    rel="noopener noreferrer">{{ 'button.trailer' | translate }}</a>
+            </div>
+        </div>
+    </article>
+</section>

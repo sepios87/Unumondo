@@ -1,0 +1,59 @@
+<app-header title="{{ 'nav.team' | translate }}" subtitle="unu mondo" img="/assets/images/header/ice3.webp"></app-header>
+<section class="section">
+  <h3 class="section__soustitre">{{ 'team.our_team' | translate }}</h3>
+  <h2 class="section__titre">{{ 'team.enthusiasts' | translate }}</h2>
+  <div class="section--messages">
+    <article class="article">
+      <div class="article__infos ">
+        <h3 class="membre-info membre-nom">Sophie SIMONIN</h3>
+        <p class="membre-info membre-fonction">{{ 'team.co_founder' | translate }}</p>
+        <p class="message message--left">{{ 'team.sophie_description' | translate }}</p>
+      </div>
+      <a class="polaroid polaroid--right" href="https://www.instagram.com/sophie.simonin.sails/">
+        <img src="/assets/images/sophie.webp" alt="Sophie Simonin" class="polaroid__img">
+        <a href="https://www.instagram.com/sophie.simonin.sails/" class="link">
+          <fa-icon [icon]="faInstagram" class="contact__icon link__logo link__logo--mobile"></fa-icon>
+          @sophie.simonin.sails
+        </a>
+      </a>
+    </article>
+    <article class="article article--reverse">
+      <div class="article__infos article__infos--right">
+        <h3 class="membre-info membre-nom">Tobias CARTER</h3>
+        <p class="membre-info membre-fonction">{{ 'team.co_founder' | translate }}</p>
+        <p class="message">{{ 'team.tobias_description' | translate }}</p>
+      </div>
+      <a class="polaroid polaroid--left" href="https://www.instagram.com/unumondoexpedition/">
+        <img src="/assets/images/tobias.webp" alt="Tobias Carter" class="polaroid__img">
+        <a href="https://www.instagram.com/unumondoexpedition/" class="link">
+          <fa-icon [icon]="faInstagram" class="contact__icon link__logo link__logo--mobile"></fa-icon>
+          @unumondoexpedition
+        </a>
+      </a>
+    </article>
+  </div>
+</section>
+<section class="section section--carte colored--green">
+  <h3 class="section__soustitre section__soustitre--white">{{ 'team.our_team' | translate }}</h3>
+  <h2 class="section__titre">{{ 'team.meeting' | translate }}</h2>
+  <img class="map" src="/assets/images/map.webp" alt="Carte">
+</section>
+<section class="section section--section" *ngFor="let equipe of equipes; trackBy: trackById">
+  <h3 class="section__soustitre">{{ 'team.our_team' | translate }}</h3>
+  <h2 class="section__titre">{{ equipe.nom }}</h2>
+  <section class="flex flex--space-around">
+    <app-vignette-membre #membreSetion [id]="membre.id" *ngFor="let membre of getMembresWithEquipeId(equipe.id)"
+      [membre]="membre" [fonction]="getFonctionsWithId(membre.fonctionsId[0])"></app-vignette-membre>
+  </section>
+</section>
+<section class="section section--section section--volunteers" id="volunteers">
+  <h3 class="section__soustitre">{{ 'team.our_team' | translate }}</h3>
+  <h2 class="section__titre">{{ 'team.volunteers' | translate }}</h2>
+  <section class="flex flex--space-around">
+    <app-vignette-membre [id]="membre.id" *ngFor="let membre of benevoles.slice(0, 5); trackBy: trackById"
+      [membre]="membre" [showInfos]="false"></app-vignette-membre>
+    <app-vignette-membre *ngIf="benevoles.length > 5" [summary]="true" [numberVolunteer]="(benevoles.length - 5)">
+    </app-vignette-membre>
+  </section>
+  <a class="equipe__button" [routerLink]="['/contact']">{{ 'team.join' | translate }}</a>
+</section>

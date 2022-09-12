@@ -1,0 +1,76 @@
+@import "src/scss/mixins", "src/scss/variables";
+
+.title {
+  @include title($darkBlue);
+}
+
+.section {
+  margin-top: $marginBig;
+  width: 80%;
+  margin: $marginBig auto;
+}
+
+.article {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  @media screen and (min-width: $mediaLaptop) {
+    flex-direction: row;
+    align-items: center;
+    gap: $marginBig;
+    margin: $marginMedium 0;
+  }
+
+  .title {
+    text-align: left;
+  }
+
+  &__affiche {
+    margin: $marginMedium 0;
+
+    @media screen and (min-width: $mediaLaptop) {
+      margin: 0;
+    }
+  }
+
+  &__img-affiche {
+    width: 100%;
+    object-fit: cover;
+    height: 300px;
+  }
+
+  &__information {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media screen and (min-width: $mediaPhone) {
+      width: 50%;
+    }
+  }
+
+  &__logo {
+    margin-bottom: 2rem;
+  }
+
+  &__text {
+    @include text;
+    margin: $marginSmall 0;
+  }
+
+  &__btns {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+
+    @media screen and (min-width: $mediaLaptop) {
+      gap: $marginSmall;
+    }
+  }
+
+  &__button {
+    @include button;
+  }
+}

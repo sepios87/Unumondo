@@ -1,0 +1,7 @@
+<section class="chiffre" appLazyLoadingBackground [dataBg]="imgUrl">
+  <div *ngFor="let number of numbers" class="item">
+    <h2 class="item__number" [countUp]="number.valeur" [options]="options" [reanimateOnClick]="false">{{ number.valeur
+      }}</h2>
+    <h3 class="item__description">{{ number.nom }}</h3>
+  </div>
+</section>

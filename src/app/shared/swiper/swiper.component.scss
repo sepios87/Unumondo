@@ -1,0 +1,94 @@
+@import "src/scss/mixins", "src/scss/variables";
+
+.swiper {
+    width: 80%;
+    margin: $marginSmall auto $marginBig;
+    position: relative;
+
+    &__button {
+        background: $aqua;
+        height: 40px;
+        width: 40px;
+        z-index: 1;
+        border-radius: 50%;
+        top: 145px;
+        position: absolute;
+        padding: 10px;
+        cursor: pointer;
+
+        &--left {
+            left: -25px;
+        }
+
+        &--right {
+            right: -25px;
+        }
+    }
+
+    &__link {
+        display: block;
+        width: fit-content;
+        margin: 0 auto;
+        cursor: pointer;
+    }
+
+    &__img-container {
+        position: relative;
+    }
+
+    &__img {
+        border-radius: 2px;
+        height: 300px;
+        width: 100%;
+        object-fit: cover;
+        box-shadow: 2px 2px 20px -15px black;
+
+        &--contain {
+            object-fit: contain;
+        }
+    }
+
+    &__play {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba($darkBlue, 0.4);
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 60px;
+            height: 60px;
+            transform: translate(-50%, -50%);
+            background: center / contain no-repeat url('/assets/icons/play.webp');
+            filter: drop-shadow(5px 5px 20px black);
+        }
+    }
+
+    &__subtitle {
+        color: $aqua;
+        text-transform: uppercase;
+        margin: 20px 0 10px;
+        font-size: 16px;
+    }
+
+    &__title {
+        color: $darkBlue;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: 600;
+        font-size: 18px;
+    }
+}
+
+.audio {
+    width: 90%;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+}

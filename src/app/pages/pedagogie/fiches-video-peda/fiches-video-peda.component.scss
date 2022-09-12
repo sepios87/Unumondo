@@ -1,0 +1,13 @@
+@import "src/scss/mixins", "src/scss/variables";
+
+.section {
+  padding-bottom: 20rem;
+}
+
+.title {
+  @include title($darkBlue);
+}
+
+.subtitle {
+  @include subTitle($aqua);
+}

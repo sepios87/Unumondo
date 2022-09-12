@@ -1,0 +1,8 @@
+<section *ngIf="mainSponsor.length > 0" class="sponsors">
+    <h3 class="subtitle">Pour financer nos projets</h3>
+    <h2 class="title">Nos sponsors principaux</h2>
+    <section class="sponsors__main">
+        <a *ngFor="let sponsor of mainSponsor; trackBy: trackById" class="sponsors__link" [href]="sponsor.lien"><img loading="lazy" [src]="sponsor.logo.getUrl('moyenne')" [alt]="sponsor.nom" class="sponsors__img" /></a>
+      </section>
+    <a routerLink="/partners" class="button">Découvrir tous nos partenaires</a>
+</section>

@@ -1,0 +1,153 @@
+@import "src/scss/mixins";
+@import "src/scss/variables";
+
+.contact {
+  background-image: url("/assets/images/iceberg.webp");
+  background-size: cover;
+  padding: $marginMedium $marginSmall;
+  min-height: 950px;
+  background-position: center;
+  margin-bottom: 50px;
+
+  @media (min-width: $mediaTablet) {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $mediaTablet) {
+      margin-left: 4rem;
+      margin-top: 4rem;
+    }
+  }
+
+  &__link {
+    @media (min-width: $mediaTablet) {
+      transition: all 300ms;
+
+      &:hover {
+        transform: translateX(-5px);
+      }
+    }
+  }
+
+  &__subtitle {
+    text-transform: uppercase;
+    color: white;
+    font-weight: $regular;
+    font-size: 18px;
+    letter-spacing: 15px;
+    padding-top: 20px;
+    padding-left: 15px;
+  }
+
+  &__title {
+    @extend .contact__subtitle;
+    font-weight: $bold;
+    padding-top: 0;
+    font-size: 35px;
+    margin: 20px 0;
+    letter-spacing: normal;
+  }
+
+  &__error {
+    color: red;
+    margin-top: 8px;
+  }
+
+  &__formulaire {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5%;
+    margin-left: 15px;
+    height: 80vh;
+    justify-content: space-evenly;
+  }
+
+  &__champs {
+    background: transparent;
+    border: 0;
+    border-bottom: solid 1px white;
+    width: 320px;
+    color: white;
+    resize: none;
+
+    &::placeholder {
+      color: white;
+      opacity: 1;
+    }
+  }
+
+  &__button {
+    @include button(false);
+  }
+
+  &__reseaux {
+    display: flex;
+    font-size: 2.5rem;
+    justify-content: center;
+    color: white;
+    width: 100%;
+    column-gap: 20px;
+    margin-top: $marginMedium;
+
+    @media (min-width: $mediaTablet) {
+      flex-direction: column;
+      align-items: center;
+      margin-right: $marginMedium;
+      font-size: 5rem;
+      width: unset;
+    }
+  }
+
+  &__icon {
+    @media (min-width: $mediaTablet) {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__rgpd {
+    color: white;
+    width: 40%;
+    font-size: 12px;
+    font-style: italic;
+
+    &-label {
+      line-height: 2rem;
+    }
+  }
+}
+
+.selectContainer {
+  width: 320px;
+  position: relative;
+
+  .select-contact {
+    background: transparent;
+    border: 0;
+    border-bottom: solid 1px white;
+    width: 100%;
+    color: white;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+    padding-bottom: 5px;
+
+    &__option {
+      color: black;
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    right: 0;
+    height: 80%;
+    pointer-events: none;
+    top: 0;
+    bottom: 0;
+  }
+}

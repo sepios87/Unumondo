@@ -1,0 +1,33 @@
+@import "src/scss/mixins", "src/scss/variables";
+
+.title {
+  @include title($darkBlue);
+}
+
+.subtitle {
+  @include subTitle($aqua);
+}
+
+.search {
+  display: block;
+  margin: $marginMedium auto;
+  position: relative;
+  width: fit-content;
+
+  &__input {
+    border-bottom: solid $darkBlue 1px;
+    padding-right: 30px;
+    height: 30px;
+  }
+
+  &__label {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+
+    img {
+      height: 20px;
+    }
+  }
+}

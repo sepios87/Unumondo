@@ -1,0 +1,4 @@
+<app-header title="{{ 'nav.missions' | translate }}" subtitle="Unu mondo" img="/assets/images/header/ice8.webp"></app-header>
+<main class="main">
+  <app-description #missionSection *ngFor="let mission of missions; let isOdd = odd;" [id]="mission.id" title={{mission.nom}} [direction]="isOdd ? 'right' : 'left'" image="{{mission.image.getUrl('geante')}}" desc="{{mission.description}}"></app-description>
+</main>

@@ -1,0 +1,47 @@
+@import "src/scss/mixins", "src/scss/variables";
+
+.button {
+    @include button;
+}
+
+.who {
+    padding: 10%;
+    background-size: cover;
+    background-position: center;
+
+    @media screen and (min-width: $mediaTablet) {
+        padding: 10% 10% 10% 40%;
+        background-position: left;
+    }
+
+    &__subtitle {
+        @include subTitle($aqua);
+        text-align: initial;
+        padding-left: 0;
+    }
+
+    &__title {
+        @include title($darkBlue);
+        margin: $marginSmall 0;
+        text-align: initial;
+
+        span {
+            display: block;
+        }
+    }
+
+    &__description {
+        @include text;
+        margin-top: $marginSmall;
+    }
+
+    &__buttons {
+        padding-top: 10px;
+        width: 100%;
+        font-size: 12px;
+        margin-top: $marginSmall;
+        cursor: pointer;
+        display: flex;
+        column-gap: 50px;
+    }
+}

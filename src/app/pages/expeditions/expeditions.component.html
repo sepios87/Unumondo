@@ -1,0 +1,27 @@
+<app-header title="{{ 'nav.expeditions' | translate }}" subtitle="unu mondo" img="/assets/images/header/ice5.webp"></app-header>
+<section class="expeditions__description">
+  <h3 class="expeditions__subtitle expeditions__subtitle--color">Unumundo</h3>
+  <h1 class="expeditions__title expeditions__title--color">{{ 'expedition.expeditions' | translate }}</h1>
+  <p class="expeditions__content" section__title>{{ 'expedition.desc' | translate }}</p>
+</section>
+<a class="expeditions" *ngFor="let expedition of expeditions; let i = index; trackBy: trackById" [routerLink]="['/expedition', expedition.id]">
+  <article class="expeditions__informations">
+    <h3 class="expeditions__subtitle">{{ 'expedition.expedition' | translate }}</h3>
+    <h2 class="expeditions__title">{{expedition.nom}}</h2>
+    <span class="expeditions__separator"></span>
+  </article>
+  <div *ngIf="isAfter(expedition.date)">
+    <div class="counter">
+      <div class="counter__item" *ngFor="let diff of getTimeDifference(expedition.date)">
+        <span class="counter__delai">{{ diff.delai }}</span>
+        <span class="counter__label">{{ diff.label | translate}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="expeditions__button {{ i === expeditions.length - 1 ? 'expeditions__button--up' : '' }}">
+    <p>{{ 'expedition.see' | translate }} <strong>{{expedition.nom}}</strong></p>
+  </div>
+  <div class="expeditions__background">
+    <img [src]="expedition.imageSlider.getUrl('geante')" alt="Photo de l'expédition">
+  </div>
+</a>

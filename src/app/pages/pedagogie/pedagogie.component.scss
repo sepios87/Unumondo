@@ -1,0 +1,41 @@
+@import "src/scss/mixins", "src/scss/variables";
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: $marginBig 0;
+
+  &__title {
+    @include title($darkBlue);
+  }
+
+  &__subtitle {
+    @include subTitle($aqua);
+  }
+
+  &__text {
+    @include text;
+    text-align: center;
+    margin: $marginSmall 0;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    row-gap: 30px;
+    width: 60%;
+
+    @media screen and (min-width: $mediaLaptop) {
+      flex-direction: row;
+    }
+  }
+
+  &__button {
+    @include button;
+    margin: auto;
+  }
+
+}

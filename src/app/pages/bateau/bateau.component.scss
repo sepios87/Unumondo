@@ -1,0 +1,89 @@
+@import "src/scss/mixins", "src/scss/variables";
+
+.title {
+  @include title($darkBlue);
+}
+
+.globe {
+  width: 100%;
+  overflow-x: hidden;
+
+  &__map {
+    display: flex;
+    justify-content: center;
+    transform: scale(0.6);
+    height: 500px;
+
+    @media screen and (min-width: $mediaTablet) {
+      transform: scale(1);
+      height: 600px;
+    }
+  }
+
+  &__content {
+    width: 80%;
+    margin: auto;
+  }
+
+  &__text {
+    @include text;
+    text-align: center;
+  }
+}
+
+.spec {
+  width: 80%;
+  margin: $marginMedium auto;
+  display: flex;
+  flex-direction: column;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media screen and (min-width: $mediaPhone) {
+      flex-direction: row;
+    }
+  }
+
+  &__image {
+    width: 75%;
+    margin: auto;
+
+    @media screen and (min-width: $mediaPhone) {
+      width: 20%;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: $marginSmall;
+    margin: $marginMedium 0;
+
+    @media screen and (min-width: $mediaPhone) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: $marginMedium;
+    }
+  }
+
+  &__item {
+    color: $grey;
+    font-size: 16px;
+    font-weight: $medium;
+
+    span {
+      color: $aqua;
+    }
+  }
+}
+
+.map {
+  display: flex;
+  justify-content: center;
+  margin: 5vh 0;
+  border-radius: 10px;
+}

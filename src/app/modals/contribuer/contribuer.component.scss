@@ -1,0 +1,152 @@
+@import "src/scss/mixins", "src/scss/variables";
+
+.modal {
+  animation: .2s slideOpacity;
+  position: fixed;
+  width: fit-content;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  background-color: $darkBlue;
+  border-radius: 8px;
+  padding: 20px;
+  color: white;
+  box-shadow: 3px 5px 27px -8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 380px;
+
+  &__title {
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: $bold;
+    font-size: 30px;
+    letter-spacing: normal;
+  }
+
+  &__close {
+    position: absolute;
+    right: 25px;
+    top: 20px;
+    cursor: pointer;
+  }
+}
+
+.form {
+  width: 100%;
+  padding: 0 5%;
+
+  &__button {
+    margin: 30px auto !important;
+    @include button(false);
+  }
+
+  &__coordonnées {
+    display: flex;
+    padding: 2rem;
+  }
+  &__nom {
+    border-bottom: 1px solid white;
+    margin-right: 2rem;
+  }
+  &__prix {
+    border-bottom: 1px solid white;
+  }
+}
+
+.montantRadio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 40%;
+  margin: 5% auto;
+  gap: 20px;
+
+  @media screen and (min-width: $mediaPhone) {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  &__radio {
+    display: none;
+
+    &:checked + .montantRadio__label {
+      background-color: $aqua;
+    }
+  }
+
+  &__label {
+    transition: background-color 0.2s;
+    border: solid $aqua 1px;
+    border-radius: 3px;
+    padding: 10px 5%;
+    text-align: center;
+    max-width: 150px;
+    min-width: 80px;
+    margin: auto;
+    cursor: pointer;
+  }
+}
+
+.montantLibre {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column-reverse;
+  margin: 20px 0;
+
+  @media screen and (min-width: $mediaPhone) {
+    flex-direction: row;
+    width: 100%;
+    gap: 30px;
+  }
+
+  input[type=range].slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 60%;
+    height: 5px;
+    background: rgba($aqua, 0.5);
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+    margin-bottom: 15px;
+
+    @media screen and (min-width: $mediaPhone) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.input {
+  border: solid $aqua 1px;
+  color: white;
+  border-radius: 3px;
+  padding: 5px 10%;
+  max-width: 150px;
+  min-width: 100px;
+  text-align: center;
+  margin: auto;
+  -moz-appearance: textfield;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+@keyframes slideOpacity {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,266 @@
+@import "src/scss/mixins";
+@import "src/scss/variables";
+
+.toggle {
+  display: block;
+  position: fixed;
+  top: 35px;
+  left: 35px;
+  z-index: 1001;
+  width: 35px;
+  cursor: pointer;
+  padding: 5px;
+  mix-blend-mode: difference;
+  filter: contrast(100%);
+}
+
+.responsiveNav {
+  position: fixed;
+  z-index: 1001;
+  bottom: 20px;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  left: 5%;
+  background: $darkBlue;
+  color: white;
+  font-size: 16px;
+
+  @media screen and (min-width: $mediaTablet) {
+    display: none;
+  }
+
+  &.open {
+    .responsiveNav__anim {
+      transform: rotate(45deg);
+      &::before {
+        opacity: 0;
+      }
+      &::after {
+        transform: rotate(-90deg);
+        top: 0;
+        opacity: 1;
+        width: 100%;
+      }
+    }
+  }
+
+  &__toggle {
+    background-color: $midBlue;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 0 $marginSmall;
+  }
+
+  &__animContainer {
+    height: 40px;
+    width: 40px;
+    position: relative;
+    margin-left: 20px;
+  }
+
+  &__anim {
+    width: 100%;
+    background: white;
+    height: 2px;
+    border-radius: 10px;
+    top: 48%;
+    position: absolute;
+    transition: all 300ms ease-in-out;
+
+    &::before,
+    &::after {
+      transition: all 300ms ease-in-out;
+      content: "";
+      left: 0;
+      background: white;
+      height: 2px;
+      border-radius: 10px;
+      position: absolute;
+    }
+
+    &::before {
+      top: -10px;
+      width: 60%;
+    }
+
+    &::after {
+      top: 10px;
+      width: 80%;
+    }
+  }
+
+  &__contribuer {
+    display: flex;
+    align-items: center;
+
+    img {
+      margin-left: 20px;
+      width: 30px;
+    }
+
+    p {
+      text-transform: capitalize;
+      margin-left: 15px;
+    }
+  }
+}
+
+.nav {
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+  text-transform: uppercase;
+
+  @media screen and (min-width: $mediaTablet) {
+    left: 0;
+    bottom: auto;
+    top: 0;
+  }
+
+  &__headerLogo {
+    display: block;
+    width: 160px;
+    margin: $marginMedium auto 0;
+
+    @media screen and (min-width: $mediaTablet) {
+      display: none;
+    }
+  }
+
+  &__list {
+    bottom: 20px;
+    width: 90%;
+    left: 5%;
+    overflow: hidden;
+    background: $midBlue;
+    display: flex;
+    position: fixed;
+    font-size: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transition: all 0.5s ease-in-out;
+    text-transform: capitalize;
+    padding-bottom: 10%;
+    z-index: 1000;
+    border-radius: 10px;
+    height: 0;
+    opacity: 0;
+
+    &--open {
+      height: 500px;
+      padding-bottom: 70px;
+      padding-top: 30px;
+      opacity: 1;
+
+      @media screen and (min-width: $mediaTablet) {
+        transform: none;
+      }
+    }
+
+    @media screen and (min-width: $mediaTablet) {
+      text-transform: uppercase;
+      opacity: 1;
+      overflow: auto;
+      border-radius: 0;
+      width: 100%;
+      height: 140px;
+      flex-direction: row;
+      justify-content: space-between;
+      font-size: 17px;
+      background: none;
+      position: initial;
+      padding: 0 6% 0;
+      width: 100%;
+    }
+  }
+
+  &__item {
+    text-align: center;
+    position: relative;
+
+    &--active::before {
+      content: "";
+      background-color: white;
+      width: 5px;
+      height: 5px;
+      display: block;
+      position: absolute;
+      left: -20px;
+      top: 50%;
+      transform: translate(-50%);
+      border-radius: 50%;
+    }
+
+    &--onlyResponsive {
+      @media screen and (min-width: $mediaTablet) {
+        display: none;
+      }
+    }
+
+    @media screen and (min-width: $mediaTablet) {
+      width: 110px;
+
+      &--active::before {
+        bottom: -15px;
+        left: 50%;
+        top: auto;
+      }
+    }
+
+    &--responsiveLogo {
+      display: block;
+      img {
+        width: 150px;
+        margin-bottom: 30px;
+      }
+      @media screen and (min-width: $mediaTablet) {
+        display: none;
+      }
+    }
+
+    &--logo {
+      width: 160px;
+      margin: 0 3%;
+      transform: translateY(30px);
+      display: none;
+
+      @media screen and (min-width: $mediaTablet) {
+        display: block;
+      }
+    }
+
+    a {
+      position: relative;
+      color: white;
+      text-decoration: none;
+
+      @media screen and (min-width: $mediaTablet) {
+        &:hover {
+          &:not(.nav__item--active) {
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -8px;
+          background: white;
+          height: 2px;
+          width: 0;
+          left: 0;
+          transition: width 0.2s ease-in-out;
+        }
+      }
+    }
+  }
+}

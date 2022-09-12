@@ -1,0 +1,4 @@
+<section class="section" *ngIf="presses.length > 0">
+    <h2 class="title">{{ 'gallery.newspaper' | translate }}</h2>
+    <app-swiper [list]="getSwiperList()" [isContain]="true"></app-swiper>
+</section>

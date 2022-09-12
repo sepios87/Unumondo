@@ -1,0 +1,9 @@
+<section class="who" appLazyLoadingBackground dataBg="/assets/images/arbre.webp">
+    <h3 class="who__subtitle">{{ 'home.who' | translate }}</h3>
+    <h2 class="who__title">{{ 'home.association' | translate }}<span>Unu mondo</span></h2>
+    <div class="who__description" *ngIf="descriptionAssociation" [innerHTML]="descriptionAssociation"></div>
+    <div class="who__buttons">
+        <a class="button" href="https://www.helloasso.com/associations/umexpedition/adhesions/adhesion-unu-mondo-expedition-1" target="_blank">{{ 'adhere' | translate }}</a>
+        <p class="button" (click)="openModalContribuer()">{{ 'support' | translate }}</p>
+    </div>
+</section>

@@ -1,0 +1,71 @@
+@import "src/scss/mixins", "src/scss/variables";
+
+.title {
+    @include title($darkBlue);
+}
+
+.subtitle {
+    @include subTitle($aqua);
+}
+
+.button {
+    @include button;
+    margin: auto;
+}
+
+.equipe {
+    padding-top: $marginBig;
+
+    &__container {
+        width: 100%;
+        display: grid;
+        margin: $marginSmall auto;
+        grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+        gap: 30px;
+
+        @media screen and (min-width: $mediaTablet) {
+            margin: 3% auto;
+            width: 43%;
+        }
+    }
+
+    &__link {
+        width: 100px;
+        height: 100px;
+        margin: auto;
+
+        @media screen and (min-width: $mediaTablet) {
+            width: 150px;
+            height: 150px;
+        }
+    }
+
+    &__membre {
+        @include avatar(100px);
+        margin: auto;
+
+        @media screen and (min-width: $mediaTablet) {
+            @include avatar(150px);
+        }
+
+        &--count {
+            background-color: $aqua;
+            grid-column: 2;
+            grid-row: 2;
+            text-transform: uppercase;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+
+            span {
+                font-weight: bold;
+                display: block;
+                text-align: center;
+                font-size: 25px;
+            }
+        }
+    }
+}

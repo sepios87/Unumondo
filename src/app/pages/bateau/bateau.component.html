@@ -1,0 +1,38 @@
+<app-header title="{{ 'nav.boat' | translate }}" subtitle="unu mondo" img="/assets/images/header/boat.webp"></app-header>
+<section class="globe">
+    <div #globeGL class="globe__map"></div>
+    <div class="globe__content">
+        <h3 class="title">{{ 'boat.arctic_circle' | translate }}</h3>
+        <div *ngIf="bateau" class="globe__text" [innerHTML]="bateau.descriptionCerclePolaire"></div>
+    </div>
+</section>
+
+<div class="map">
+    <iframe loading="lazy" src="https://forecast.predictwind.com/tracking/display/Northabout" width="80%"
+        height="500px"></iframe>
+</div>
+
+<div *ngFor="let expedition of expeditionsBateau; let i = index; trackBy: trackById">
+  <section *ngIf="i === 1" class="spec">
+    <h2 class="title">{{ 'boat.spec' | translate }}</h2>
+    <div class="spec__container">
+      <ul *ngIf="bateau" class="spec__list">
+        <li class="spec__item">{{ 'boat.name' | translate }} : <span class="spec__data">{{bateau.nom}}</span></li>
+        <li class="spec__item">{{ 'boat.capacity' | translate }} : <span
+          class="spec__data">{{bateau.capacite}} personnes</span></li>
+        <li class="spec__item">{{ 'boat.width' | translate }} : <span class="spec__data">{{bateau.largeur}} m</span>
+        </li>
+        <li class="spec__item">{{ 'boat.length' | translate }} : <span class="spec__data">{{bateau.longueur}} m</span>
+        </li>
+        <li class="spec__item">{{ 'boat.port' | translate }} : <span class="spec__data">{{bateau.port}}</span></li>
+        <li class="spec__item">{{ 'boat.water_draft' | translate }} : <span
+          class="spec__data">{{bateau.tirantEau}} m</span></li>
+        <li class="spec__item">{{ 'boat.contruction' | translate }} : <span
+          class="spec__data">{{bateau.dateConstruction | date: 'dd/MM/yyyy'}}</span></li>
+      </ul>
+      <img class="spec__image" src="/assets/images/boat.webp" alt="bateau" />
+    </div>
+  </section>
+    <app-description [direction]="i % 2 === 0 ? 'left' : 'right'" [image]="expedition.image.getUrl('geante')"
+        [desc]="expedition.contenu"></app-description>
+</div>

@@ -1,0 +1,19 @@
+<header class="header">
+    <owl-carousel-o [options]="customOptions" class="slider">
+        <ng-template carouselSlide *ngFor="let expedition of expeditions; trackBy: trackById">
+            <div class="slider__container">
+                <h2 class="slider__subtitle">{{ 'expedition.expedition' | translate }}</h2>
+                <h1 class="slider__title">{{expedition.nom}} {{expedition.date | date:"YYYY"}}</h1>
+                <div class="slider__separator"></div>
+                <a class="slider__button" [routerLink]="['/expedition', expedition.id]">{{ 'button.discover' | translate
+                    }}</a>
+                <div class="background">
+                    <!-- Pas de alt ici car images d'illustration + sinon scintille  -->
+                    <img [src]="expedition.imageSlider.getUrl('geante')">
+                </div>
+            </div>
+        </ng-template>
+    </owl-carousel-o>
+    <img (click)="scroll()" class="header__arrow" src="/assets/icons/arrow-bottom.webp"
+        alt="fleche pour descendre en bas" />
+</header>

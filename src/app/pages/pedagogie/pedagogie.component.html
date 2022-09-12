@@ -1,0 +1,15 @@
+<app-header title="{{ 'nav.pedagogy' | translate }}" subtitle="Unu mondo" img="/assets/images/header/ice10.webp">
+</app-header>
+<main class="main">
+  <h3 class="main__subtitle">{{ 'pedagogy.awareness' | translate }}</h3>
+  <h2 class="main__title">{{ 'pedagogy.pedagogy' | translate }}</h2>
+  <p class="main__text">{{ 'pedagogy.desc' | translate }}</p>
+  <div class="main__buttons">
+    <a routerLink="/contact" routerLinkActive="router-link-active" class="main__button">{{ 'button.invite' | translate
+      }}</a>
+    <a *ngIf="plaquette" [href]="plaquette.getUrl()" download class="main__button">{{ 'button.brochure' | translate
+      }}</a>
+  </div>
+</main>
+<app-fiches-peda *ngIf="niveaux" [niveaux]="niveaux"></app-fiches-peda>
+<app-fiches-video-peda *ngIf="niveaux" [niveaux]="niveaux"></app-fiches-video-peda>

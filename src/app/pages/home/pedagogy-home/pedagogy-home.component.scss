@@ -1,0 +1,61 @@
+@import "src/scss/mixins", "src/scss/variables";
+
+
+.title {
+    @include title($darkBlue);
+}
+
+.subtitle {
+    @include subTitle($aqua);
+}
+
+.button {
+    @include button;
+    margin: $marginSmall auto 0;
+
+    @media screen and (min-width: $mediaPhone) {
+        margin: $marginSmall 0;
+    }
+}
+
+.peda {
+    margin-top: $marginBig;
+
+    .info {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        margin: $marginSmall auto;
+        width: 80%;
+
+        @media screen and (min-width: $mediaPhone) {
+            flex-direction: row;
+        }
+
+        &__image {
+            width: 100%;
+            margin: auto 0;
+            object-fit: cover;
+
+            @media screen and (min-width: $mediaPhone) {
+                width: 50%;
+                max-height: 500px;
+            }
+        }
+
+        &__content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            margin-top: $marginSmall;
+            @include text;
+
+            @media screen and (min-width: $mediaPhone) {
+                width: 50%;
+                text-align: left;
+                margin: auto $marginMedium;
+            }
+        }
+    }
+}

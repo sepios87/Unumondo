@@ -1,0 +1,28 @@
+@import "src/scss/mixins", "src/scss/variables";
+
+.mention {
+  margin: 0 auto;
+  width: 70%;
+
+  @media screen and (min-width: $mediaPhone) {
+    margin-bottom: 15rem;
+  }
+
+  &__title {
+    color: $midBlue;
+    font-size: 2.5rem;
+    font-weight: $bold;
+    margin: $marginBig 0 $marginSmall;
+    text-transform: uppercase;
+  }
+
+  p{
+   @include text;
+  }
+
+  &__list {
+    color: $darkBlue;
+    font-size: 18px;
+    margin-bottom: $marginSmall;
+  }
+}

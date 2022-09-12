@@ -1,0 +1,17 @@
+@import "src/scss/mixins", "src/scss/variables";
+
+.title {
+  @include title($darkBlue);
+}
+
+.subtitle {
+  @include subTitle($aqua);
+}
+
+.button {
+  @include button;
+
+  &--center {
+    margin: auto;
+  }
+}

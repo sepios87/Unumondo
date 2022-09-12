@@ -1,0 +1,22 @@
+<ng-container *ngIf="isDisplay">
+    <section appClickOutside (clickOutside)="close()" appClickOutside class="modal">
+        <h3 class="modal__title">{{ 'title.donate' | translate }}</h3>
+        <img (click)="close()" class="modal__close" width="15px" height="15px" src="/assets/icons/close.webp" />
+        <form class="form" (ngSubmit)="buy()" [formGroup]="stripeForm">
+            <div class="montantRadio">
+                <ng-container *ngFor="let montant of montants; let first=first">
+                    <input (change)="change($event.target)" class="montantRadio__radio" type="radio" id="{{montant}}" value="{{montant}}" name="montant" [checked]="first" />
+                    <label class="montantRadio__label" for="{{montant}}">{{montant}}€</label>
+                </ng-container>
+            </div>
+            <div class="montantLibre">
+                <input formControlName="amount" name="amount" placeholder="Votre don" class="input" type="number" min="0" />
+                <input (input)="change($event.target)" name="amount" type="range" min="1" max="100" value="50" class="slider">
+            </div>
+            <div>
+                <ngx-stripe-card [options]="cardOptions" [elementsOptions]="elementsOptions"></ngx-stripe-card>
+            </div>
+            <input class="form__button" type="submit" value="{{ 'button.donate' | translate }}" />
+        </form>
+    </section>
+</ng-container>

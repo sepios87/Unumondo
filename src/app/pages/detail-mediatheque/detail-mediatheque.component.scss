@@ -1,0 +1,56 @@
+@import "src/scss/mixins", "src/scss/variables";
+
+.title {
+    @include title($darkBlue);
+}
+
+.details-gallery {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: $marginBig auto $marginBottomNav;
+
+    &__item {
+        height: 500px;
+        width: 100%;
+        object-fit: cover;
+        cursor: pointer;
+
+        @media screen and (min-width: $mediaLaptop) {
+            width: 30%;
+            max-width: 1000px;
+        }
+    }
+}
+
+.popup {
+    background-color: rgba(black, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: 300ms slidein;
+
+    img {
+        width: 80%;
+        object-fit: contain;
+        max-height: 80vh;
+    }
+}
+
+@keyframes slidein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

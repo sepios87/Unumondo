@@ -1,0 +1,6 @@
+<section class="description" [ngClass]="{'description--left' : direction === 'left'}" [ngStyle]="{'background-image' : 'url('+image+')'}">
+  <article class="description__content">
+    <h2 class="description__title">{{title}}</h2>
+    <div class="description__text" [innerHTML]="desc"></div>
+  </article>
+</section>

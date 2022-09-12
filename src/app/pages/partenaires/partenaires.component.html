@@ -1,0 +1,28 @@
+<app-header title="{{ 'nav.partner' | translate }}" subtitle="unu mondo" img="/assets/images/header/ice9.webp">
+</app-header>
+<main class="main">
+  <h2 class="main__title">{{ 'sponsor.main' | translate }}</h2>
+  <section class="main__sponsors" *ngFor="let sponsor of getMainSponsor(); trackBy: trackById">
+    <a [href]="sponsor.lien"><img [src]="sponsor.logo.getUrl('moyenne')" [alt]="sponsor.nom" class="main__img" /></a>
+  </section>
+  <a class="main__button" routerLink="/contact">{{ 'button.sponsor' | translate }}</a>
+</main>
+<section class="section" *ngFor="let categorie of categories; trackBy: trackById">
+  <ng-container *ngIf="!isEmptyCategorie(categorie.id)">
+    <h2 class="section__title">{{categorie.nom}}</h2>
+    <div class="section__sponsors">
+      <img *ngFor="let sponsor of getSponsorWithCategorie(categorie.id); trackBy: trackById" loading="lazy"
+        [src]="sponsor.logo.getUrl('moyenne')" [alt]="sponsor.nom" class="section__img" />
+    </div>
+  </ng-container>
+</section>
+<section class="section">
+  <h2 class="section__title">{{ 'sponsor.patrons' | translate }}</h2>
+  <div class="section__sponsors">
+    <div *ngFor="let mecene of mecenes; trackBy: trackById" class="section__mecene">
+      <img loading="lazy" [src]="mecene.logo.getUrl('moyenne')" [alt]="mecene.nom"
+        class="section__img section__img--avatar" />
+      <p class="section__mecene-name">{{mecene.nom}}</p>
+    </div>
+  </div>
+</section>

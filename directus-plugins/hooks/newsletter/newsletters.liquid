@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <title>Newsletters</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta name="robots" content="noindex,follow">
+
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+
+        .title {
+            text-align: center;
+        }
+
+        .main {
+            background-color: bisque;
+            padding: 10px 20px;
+            width: 40%;
+            display: block;
+            margin: 20px auto;
+        }
+
+        .footer {
+            background-color: #3DBDBF;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+
+
+
+<body>
+
+    <h1 class="title">Unumondo</h1>
+
+    <main class="main">
+        {{contenu}}
+    </main>
+
+    <footer class="footer">
+        <p>Newsletters de Unumondo</p>
+        <a href="https://sepios.fr/unsuscribe/{{mail}}&{{hash}}">Se désinscrire</a>
+    </footer>
+</body>
+
+</html>

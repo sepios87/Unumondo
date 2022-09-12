@@ -1,0 +1,26 @@
+@import "src/scss/mixins";
+@import "src/scss/variables";
+
+.langSelector {
+  position: absolute;
+  top: 75vh;
+  left: 0;
+  background: rgba($color: $darkBlue, $alpha: 0.7);
+  display: flex;
+  padding: 15px;
+  font-size: 22px;
+  align-items: center;
+  color: white;
+  justify-content: center;
+  z-index: 5;
+
+  &__item {
+    cursor: pointer;
+    color: white;
+
+    &--selected {
+      font-weight: $bold;
+      color: white;
+    }
+  }
+}
