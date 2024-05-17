@@ -1,5 +1,5 @@
 const stripe = require('stripe')(
-    'sk_test_51KOMk2ApFYENeqSh7ZuNmsNJAsLfFjsyreRTL2ZEgu1tbym7IhHX5mdDlfd5GS0yYoVKr4BS1ludz5i5QXBSnPFR00S9tul0RS'
+    'sk_xxxxxxxxxxxx'
 );
 
 export default (router) => {
