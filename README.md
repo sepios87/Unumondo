@@ -1,11 +1,11 @@
 # Unumondo
 
 ## Presentation
-Refonte graphique du site internet de [Unumondo Expéditions](https://unumondo.org).
+Refonte graphique du site internet de [Unumondo Expéditions](https://unumondo.org) dans le cadre d'un projet scolaire.
 
 ## Rendu
-![Logo de Unumondo](https://i.imgur.com/bUvGIrW.png)
-![Capture d'écran de la page d'accueil du site Unumondo](https://i.imgur.com/akwbfJw.png)
+![Unumundo Page d'accueil](https://github.com/sepios87/Unumondo/assets/58748740/3ad4d287-d1e4-459c-9cd2-73b5e4c76de5)
+
 
 ## Projet
 ### Technologies
